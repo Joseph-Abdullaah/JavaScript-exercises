@@ -8,21 +8,27 @@
 // Bonus: If the input is not a number, return "Not a number"
 
 
-function checkNum(){
-    let num = prompt("Enter a number")
-    // console.log(typeof num)
-
-    if (num > 0){
-        console.log(`${num} is positive`)
+function checkNumber(input) {
+    // First check if the input is not a number
+    if (typeof input !== 'number' || isNaN(input)) {
+        return "Not a number";
     }
-    else if (num < 0){
-        console.log(`${num} is negative`)
-    }
-    else if (num == 0){
-        console.log(`${num} is Zero`)
-    }else{
-        console.log(`${num} is not a number`)
+    
+    // Then check the number cases
+    if (input > 0) {
+        return "Positive";
+    } else if (input < 0) {
+        return "Negative";
+    } else {
+        return "Zero";
     }
 }
 
-checkNum()
+// Test cases
+console.log(checkNumber(5));     // "Positive"
+console.log(checkNumber(-3));    // "Negative"
+console.log(checkNumber(0));     // "Zero"
+console.log(checkNumber("abc")); // "Not a number"
+console.log(checkNumber('123')); // "Not a number"
+console.log(checkNumber(NaN));   // "Not a number"
+console.log(checkNumber(null));  // "Not a number"
